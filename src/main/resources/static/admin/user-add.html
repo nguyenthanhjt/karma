@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Hello</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+	<h1>Add User</h1>
+	<form class="form-group" th:action="@{/admin/user/add}" method="post"
+		enctype="multipart/form-data">
+
+		<div>
+			<label>ID:</label> <input type="text" name="id"
+				placeholder="No need to enter">
+		</div>
+		<div>
+			<label>Name:</label> <input type="text" name="name">
+		</div>
+		<div>
+			<label>Age:</label> <input type="text" name="age">
+		</div>
+		<div>
+			<label>Username</label> <input type="text" name="username">
+		</div>
+		<div>
+			<label>Password:</label> <input type="password" name="password">
+		</div>
+		<div>
+			<label>Role</label> <select name="role">
+				<option value="Admin">Admin</option>
+				<option value="Member">Member</option>
+			</select>
+		</div>
+		<div>
+			<label>Avatar</label> <input name="avatarFile" type="file"
+				accept="image/*">
+		</div>
+		<div>
+			<button type="submit">Them</button>
+		</div>
+	</form>
+
+</body>
+</html>

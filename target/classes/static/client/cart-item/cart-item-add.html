@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Hello</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+	<h1>Add cart</h1>
+	<form class="form-group" th:action="@{/admin/cart-item/add}"
+		method="post">
+		<div>
+			<label>ID:</label> <input type="text" name="id" readonly="readonly">
+		</div>
+		<div>
+			<label>Product</label> <select name="idProduct">
+				<option th:each="p : ${products}" th:value="${p.id}"
+					th:text="${p.name}" />
+			</select>
+		</div>
+		<div>
+			<label>Quantity</label> <input type="text" name="quantity">
+		</div>
+		<!-- <div>
+			<label>Price</label> <select name="price">
+				<option th:each="p : ${products}" th:value="${p.price}"
+					th:text="${'${p.name}' + p.price}" />
+			</select>
+		</div>  -->
+		<div>
+			<label>Cart</label> <select name="idCart">
+				<option th:each="c : ${carts}" th:value="${c.id}" th:text="${c.id}" />
+			</select>
+		</div>
+		<!-- <div>
+			<label>Category</label> <select  name="category" >
+				<option th:each="c: ${categories}" value="${c.id}"><p th:text="${c.name}"></option>
+			</select>
+		</div>  -->
+		<div>
+			<button type="submit">Add</button>
+		</div>
+	</form>
+</body>
+</html>

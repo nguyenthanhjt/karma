@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html layout:decorator="admin/template">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="/HelloServlet/css/style.css">
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<!-- Popper JS -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<title>Hello</title>
+</head>
+<body>
+	<h1>User</h1>
+	<div th:fragment="body">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-9 col-sm-12">
+					<h2>Management</h2>
+					<table class="table table-bordered">
+						<tr class='table-header'>
+							<th>ID</th>
+							<th>Name</th>
+							<th>UserName</th>
+							<th>Pass</th>
+							<th>Age</th>
+							<th>Role</th>
+							<th>Action</th>
+						</tR>
+						<tr>
+							<td><p th:text="${user.id}"></p></td>
+							<td><p th:text="${user.name}"></p></td>
+							<td><p th:text="${user.username}"></p></td>
+							<td><p th:text="${user.password}"></p></td>
+							<td><p th:text="${user.age}"></p></td>
+							<td><p th:text="${user.role}"></p></td>
+							<td><a class="btn btn-success" href="">Edit</a> | <a
+								class="btn btn-danger" href="">Delete</a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<script th:src="@{/js/main.js}"></script>
+
+<title layout:title-pattern="$CONTENT_TITLE">Hello</title>
+</head>
+<body>
+	<h1>Template test</h1>
+	<div>
+		<ul>
+			<li><a th:href="@{/change-language?lang=vi}">VietNamese</a></li>
+			<li><a th:href="@{/change-language?lang=en}">English</a></li>
+			<li><a th:href="@{/change-language?lang=zh}">Chinese</a></li>
+		</ul>
+	</div>
+	<div th:replace="admin/menu::menu"></div>
+	<div layout:fragment="body">Se duoc override sau</div>
+	<div th:replace="admin/menu::footer"></div>
+</body>
+</html>

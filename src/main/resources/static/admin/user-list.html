@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html layout:decorator="admin/template" xmlns:th="http://www.w3.org/1999/xhtml"
+	  xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script th:src="@{/js/main.js}"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<!-- Popper JS -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+	</script>
+<title>Hello</title>
+</head>
+<body>
+	<div layout:fragment="body">
+		<h1 th:text="#{hello}" ></h1>
+		<h1>User List</h1>
+		<div layout:fragment="footer">
+			<img alt="Test" th:src="@{/image/test.jpg}">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-3 col-sm-6"></div>
+					<div class="col-md-9 col-sm-12">
+						<form class="form-group" th:action="@{/admin/user/search}"
+							method="post">
+							<table class="table table-bordered">
+								<tr class='table-header'>
+									<th>Search</th>
+									<th><input type="text" name="keyword"
+										placeholder="Enter name to search"></th>
+									<th><button class="btn btn-success" type="submit">Search</button>
+										|</th>
+								</tr>
+							</table>
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-sm-6">
+						<ul class="list-group">
+							<li class="list-group-item"><a
+								th:href="@{'/admin/user/list}">User</a></li>
+							<li class="list-group-item"><a
+								th:href="@{/admin/product/list}">Product</li>
+							<li class="list-group-item"><a
+								th:href="@{/admin/category/list}">Category</li>
+							<li class="list-group-item"><a class="btn btn-success"
+								th:href="@{/admin/user/add}">Add User</a></li>
+							<li class="list-group-item"><a class="btn btn-success"
+								href="http://localhost:8081/HelloServlet/login">Log Out</a></li>
+						</ul>
+					</div>
+					<div class="col-md-9 col-sm-12">
+						<h2>Management</h2>
+						<table class="table table-bordered">
+							<tr class='table-header'>
+								<th>ID</th>
+								<th>Name</th>
+								<th>UserName</th>
+								<th>Age</th>
+								<th>Role</th>
+								<th>Avatar</th>
+								<th>Action</th>
+							</tr>
+							<tr th:each="user: ${userList}">
+								<td th:text="${user.id}"></td>
+								<td th:text="${user.name}"></td>
+								<td th:text="${user.username}"></td>
+								<td th:text="${user.age}"></td>
+								<td th:text="${user.role}"></td>
+								<td><img
+									th:src="@{'/admin/user/image?filename='+ ${user.avatarFilename}}"
+									height="100" width="100" /></td>
+								<td><a class="btn btn-success"
+									th:href="@{'/admin/user/view?id=' + ${user.id}}">View</a> | <a
+									class="btn btn-success"
+									th:href="@{'/admin/user/update/' + ${user.id}}">Edit</a> | <a
+									class="btn btn-danger"
+									th:href="@{'/admin/user/delete/' + ${user.id}}">Delete</a></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
