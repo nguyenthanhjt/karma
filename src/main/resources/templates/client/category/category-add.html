@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Hello</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+	<h1>Add category</h1>
+	<form class="form-group" th:action="@{/admin/category/add}" method="post">
+		<div>
+			<label>ID:</label> <input type="text" name="id">
+		</div>
+		<div>
+			<label>Name:</label> <input type="text" name="name">
+		</div>
+		<div>
+			<button type="submit">Them</button>
+		</div>
+	</form>
+
+</body>
+</html>

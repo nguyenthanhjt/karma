@@ -38,6 +38,6 @@ public class SecurityConfiguation extends WebSecurityConfigurerAdapter {
         //login method
 //        http.httpBasic();
         http.formLogin().loginPage("/login").defaultSuccessUrl("/admin/user/list").and()
-        .logout().logoutSuccessUrl("/login").logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+                .logout().logoutSuccessUrl("/login").logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
     }
 }

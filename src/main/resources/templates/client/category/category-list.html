@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="/HelloServlet/css/style.css">
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<!-- Popper JS -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<title>Category List</title>
+</head>
+<body>
+	<h1>User</h1>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-3 col-sm-6">
+				<ul class="list-group">
+					<li class="list-group-item"><a
+						href="http://localhost:8081/HelloServlet/user/list">Nguoi dung</a></li>
+					<li class="list-group-item"><a
+						href="http://localhost:8081/HelloServlet/product/list">San
+							Pham</li>
+					<li class="list-group-item"><a
+						href="http://localhost:8081/HelloServlet/category/list">Danh
+							muc SP</li>
+					<li class="list-group-item"><a class="btn btn-success"
+						href="http://localhost:8081/HelloServlet/user/add">Add User</a></li>
+					<li class="list-group-item"><a class="btn btn-success"
+						href="http://localhost:8081/HelloServlet/login">Log Out</a></li>
+				</ul>
+			</div>
+			<div class="col-md-9 col-sm-12">
+
+				<h2>Management</h2>
+				<table class="table table-bordered">
+					<tr class='table-header'>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Action</th>
+					</tr>
+					<tr th:each="c: ${categories}">
+						<td><p th:text="${c.id}"></p></td>
+						<td><p th:text="${c.name}"></p></td>
+						<td><a class="btn btn-success"
+							th:href="@{'/admin/category/update/' + ${c.id}}">Edit</a> | <a
+							class="btn btn-danger"
+							th:href="@{'/admin/category/delete/' + ${c.id}}">Delete</a></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>

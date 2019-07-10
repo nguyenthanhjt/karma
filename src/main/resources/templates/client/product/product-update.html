@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Update Product</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+	<h1>Update Product</h1>
+	<form class="form-group" th:action="@{/admin/product/update}"
+		method="post" enctype="multipart/form-data">
+		<div>
+			<label>ID:</label> <input type="text" name="id"
+				th:value=${product.id}>
+		</div>
+		<div>
+			<label>Name:</label> <input type="text" name="name"
+				th:value=${product.name}>
+		</div>
+		<div>
+			<label>Price</label> <input type="text" name="price"
+				th:value=${product.price}>
+		</div>
+		<div>
+			<label>Category</label> <select name="category">
+				<option th:each="c : ${categories}" th:value="${c.id}"
+					th:text="${c.name}" />
+			</select>
+		</div>
+		<div>
+			<label>Description</label> <input type="text" name="description"
+				th:value=${product.description}>
+		</div>
+		<div>
+			<label>Avatar</label> <input name="imageFile" type="file"
+				accept="image/*">
+		</div>
+
+		<!-- <div>
+			<label>Category</label> <select  name="category" >
+				<option th:each="c: ${categories}" value="${c.id}"><p th:text="${c.name}"></option>
+			</select>
+		</div>  -->
+		<div>
+			<button type="submit">Add</button>
+		</div>
+	</form>
+
+</body>
+</html>

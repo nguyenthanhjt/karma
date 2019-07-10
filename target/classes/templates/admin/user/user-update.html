@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Hello</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+	<h1>Edit User</h1>
+	<form th:action="@{/admin/user/update}" method="post"
+		enctype="multipart/form-data">
+		<input name="id" type="hidden" th:value="${user.id}" />
+		<div>
+			<label>Name:</label> <input name="name" type="text"
+				th:value="${user.name}">
+		</div>
+		<div>
+			<label>Age:</label> <input name="age" type="text"
+				th:value="${user.age}">
+		</div>
+		<div th:if="${user.role == 'Admin'}">
+			<label>role:</label> <input name="role" type="radio" value="Admin"
+				checked> ADMIN <input name="role" type="radio"
+				value="Member"> MEMBER
+		</div>
+		<div th:if="${user.role == 'Member'}">
+			<label>role:</label> <input name="role" type="radio" value="Admin">
+			ADMIN <input name="role" type="radio" value="Member" checked>
+			MEMBER
+		</div>
+		<div>
+			<label>UserName:</label> <input name="username" type="text"
+				th:value="${user.username}">
+		</div>
+		<div>
+			<label>Password:</label> <input name="password" type="password"
+				th:value="${user.password}">
+		</div>
+		<div>
+			<label>Avatar</label> <input name="avatarFile" type="file"
+				accept="image/*">
+		</div>
+		<div>
+			<button class="btn btn-success" type="submit">Cap nhat</button>
+		</div>
+	</form>
+
+</body>
+</html>

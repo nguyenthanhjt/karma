@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Cart List</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet"
+		  th:href="@{/admin/assets/vendor/bootstrap/css/bootstrap.min.css}">
+	<link th:href="@{/admin/assets/vendor/fonts/circular-std/style.css}"
+		  rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/admin/assets/libs/css/style.css}">
+	<link rel="stylesheet"
+		  th:href="@{/admin/assets/vendor/fonts/fontawesome/css/fontawesome-all.css}">
+	<link rel="stylesheet" type="text/css"
+		  th:href="@{/admin/assets/vendor/datatables/css/dataTables.bootstrap4.css}">
+	<link rel="stylesheet" type="text/css"
+		  th:href="@{/admin/assets/vendor/datatables/css/buttons.bootstrap4.css}">
+	<link rel="stylesheet" type="text/css"
+		  th:href="@{/admin/assets/vendor/datatables/css/select.bootstrap4.}">
+	<link rel="stylesheet" type="text/css"
+		  th:href="@{/admin/assets/vendor/datatables/css/fixedHeader.bootstrap4.css}">
+	<link rel="icon" type="image/png" th:href="@{/adminlogin/images/icons/favicon.ico}" />
+</head>
+<body>
+	<h1>Template test</h1>
+	<div>
+		<ul>
+			<li><a th:href="@{/change-language?lang=vi}">VietNamese</a></li>
+			<li><a th:href="@{/change-language?lang=en}">English</a></li>
+			<li><a th:href="@{/change-language?lang=zh}">Chinese</a></li>
+		</ul>
+	</div>
+	<div th:replace="admin/menu::menu"></div>
+	<div layout:fragment="body">Se duoc override sau</div>
+	<div th:replace="admin/menu::footer"></div>
+</body>
+</html>

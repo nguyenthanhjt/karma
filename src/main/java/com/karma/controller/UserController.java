@@ -33,7 +33,7 @@ public class UserController {
 
     @GetMapping("/user/add")
     public String addUser() {
-        return "admin/user-add";
+        return "admin/user/user-add";
     }
 
     @PostMapping("/user/add")
@@ -85,14 +85,14 @@ public class UserController {
 
         List<User> users = userService.search("");
         model.addAttribute("userList", users);
-        return "admin/user-list";
+        return "admin/user/user-list";
     }
 
     @GetMapping("/user/view") /// ?id=123
     public String viewUserDetail(Model model, @RequestParam(value = "id") int id) {
         User user = userService.get(id);
         model.addAttribute("user", user);
-        return "admin/view-user";
+        return "admin/user/view-user";
     }
 
 //	@GetMapping("/user/search")
@@ -109,7 +109,7 @@ public class UserController {
 
         List<User> users = userService.search(name);
         model.addAttribute("userList", users);
-        return "admin/search-user";
+        return "admin/user/search-user";
     }
 
     /// user/delete/123
@@ -127,7 +127,7 @@ public class UserController {
         User user = userService.get(id);
         model.addAttribute("user", user);
 
-        return "admin/user-update";
+        return "admin/user/user-update";
     }
 
     @PostMapping("/user/update")
